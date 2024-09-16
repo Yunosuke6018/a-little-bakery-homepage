@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WCB Fashion Collection</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <!-- ローディング画面 -->
+    <div id="loading">
+        <p>Loading...</p>
+        <div id="loading-screen"></div>
+    </div>
+
+    <!-- ナビゲーションメニュー -->
+    <nav>
+        <button id="menu-open" class="btn-menu">
+            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <title>メニューを開く</title>
+                <path clip-rule="evenodd" d="m4.25 8c0-.41421.33579-.75.75-.75h14c.4142 0 .75.33579.75.75s-.3358.75-.75.75h-14c-.41421 0-.75-.33579-.75-.75zm0 4c0-.4142.33579-.75.75-.75h14c.4142 0 .75.3358.75.75s-.3358.75-.75.75h-14c-.41421 0-.75-.3358-.75-.75zm.75 3.25c-.41421 0-.75.3358-.75.75s.33579.75.75.75h14c.4142 0 .75-.3358.75-.75s-.3358-.75-.75-.75z" fill-rule="evenodd"/>
+            </svg>
+        </button>
+        <div id="menu-panel">
+            <button id="menu-close" class="btn-menu">
+                <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <title>メニューを閉じる</title>
+                    <path clip-rule="evenodd" d="m7.53033 6.46967c-.29289-.29289-.76777-.29289-1.06066 0s-.29289.76777 0 1.06066l4.46963 4.46967-4.46963 4.4697c-.29289.2929-.29289.7677 0 1.0606s.76777.2929 1.06066 0l4.46967-4.4696 4.4697 4.4696c.2929.2929.7677.2929 1.0606 0s.2929-.7677 0-1.0606l-4.4696-4.4697 4.4696-4.46967c.2929-.29289.2929-.76777 0-1.06066s-.7677-.29289-1.0606 0l-4.4697 4.46963z" fill-rule="evenodd"/>
+                </svg>
+            </button>
+            <ul class="menu-list">
+                <li><a href="#concept">about</a></li>
+                <li><a href="#video">video</a></li>
+                <li><a href="#gallery">gallery</a></li>
+                <li><a href="#maps">maps</a></li>
+                <li><a href="https://www.instagram.com/alittlebakery?igsh=MTRjM3ZzZvMWJxOA==">instagram</a></li>
+            </ul>
+        </div>
+    </nav>
+      
+    <section class="hero">
+        <h1 class="title">a little bakery+<br></h1>
+    </section>
+      
+    <section class="concept"　>
+        <div class="wrapper">
+            <h2 class="title fadein" id="concept">小さい小さいパン屋さん</h2>
+            <p class="fadein">
+               下町の商店街に夫婦二人で営むパン屋さん。
+               職人一筋30年の主人がつくるパンが所狭しと並んでいます。
+               たくさんの種類は並べないけれど、
+               あなたの日常の小さな＋(プラス)になれるように...
+               名前の通り小さい小さいお店で今日も変わらずパンを焼いています
+            </p>
+        </div>
+        <img src="images/concept.jpg" alt="">
+    </section>
+    
+    <h2 class="title fadein" id="video">video</h2>
+        <div class="video-container">
+             <iframe src="https://www.youtube.com/embed/fFoDq0Xu8nI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+    <section class="gallery">
+        <div class="gallery-image">
+            <img src="images/img1.jpg" alt="">
+        </div>
+        <div class="gallery-content wrapper">
+            <h2 class="title fadein" id="gallery">Gallery</h2>
+            <ul class="gallery-thumbnails">
+                <li class="fadein"><img src="images/img1.jpg" alt=""></li>
+                <li class="fadein"><img src="images/img2.jpg" alt=""></li>
+                <li class="fadein"><img src="images/img3.jpg" alt=""></li>
+                <li class="fadein"><img src="images/img4.jpg" alt=""></li>
+                <li class="fadein"><img src="images/img5.jpg" alt=""></li>
+                <li class="fadein"><img src="images/img6.jpg" alt=""></li>
+                <li class="fadein"><img src="images/img7.jpg" alt=""></li>
+                <li class="fadein"><img src="images/img8.jpg" alt=""></li>
+                <li class="fadein"><img src="images/img9.jpg" alt=""></li>
+            </ul>
+        </div>
+    </section>
+
+
+    <h2 class="title fadein" id="maps">maps</h2>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.343894405468!2d135.40652971196312!3d34.721725081970455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000ef75c2967dcd%3A0x1a27bc160ae462b2!2sa%20little%20bakery%20%2B!5e0!3m2!1sja!2sjp!4v1726460294401!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
+        </iframe>
+    </div>
+    
+        
+    <section class="shop">
+        <div class="shop-content wrapper">
+            <h2 class="title fadein">Shop</h2>
+            <p class="fadein">お支払いは現金または尼崎コイン(デジタル)をご利用いただけます</p>
+            <a class="btn fadein" href="#">Tel:06-6417-4408</a>
+            
+            <h3 class="fadein">住所</h3>
+            <p class="fadein">
+                兵庫県尼崎市神田北通6丁目169-3<br>
+                定休日：毎週火曜・第三水曜<br>
+                営業時間：８:00 ~ 18:00
+            </p>
+        </div>
+    </section>
+</body>
+</html>
