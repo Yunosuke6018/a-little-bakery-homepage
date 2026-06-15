@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { toBlob } from "html-to-image";
 
 import type { MonthlySchedule } from "@/src/features/calendar/calendar.types";
 import {
@@ -9,6 +10,7 @@ import {
   getPreviousMonth,
 } from "@/src/features/calendar/calendar.utils";
 
+import { CalendarImageCard } from "./components/CalendarImageCard";
 import messages from "./messages/ja.json";
 
 const weekDays = ["月", "火", "水", "木", "金", "土", "日"];
@@ -24,6 +26,8 @@ export function AdminCalendarView() {
   );
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const imageRef = useRef<HTMLDivElement>(null);
 
   const calendarDays = createCalendarDays(currentYear, currentMonth);
 
@@ -89,6 +93,61 @@ export function AdminCalendarView() {
       );
     }
   };
+
+  const handleDownloadImage = async () => {
+  if (!imageRef.current) {
+    return;
+  }
+
+  setErrorMessage("");
+
+  try {
+    const blob = await toBlob(imageRef.current, {
+      cacheBust: true,
+      pixelRatio: 1,
+      backgroundColor: "#F7F4EE",
+    });
+
+    if (!blob) {
+      throw new Error("Failed to create image");
+    }
+
+    const fileName = `${currentYear}-${String(currentMonth).padStart(
+      2,
+      "0"
+    )}-schedule.png`;
+
+    const file = new File([blob], fileName, {
+      type: "image/png",
+    });
+
+    if (navigator.canShare?.({ files: [file] })) {
+      await navigator.share({
+        files: [file],
+        title: "営業カレンダー",
+      });
+
+      return;
+    }
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.download = fileName;
+    link.href = url;
+    link.click();
+
+    URL.revokeObjectURL(url);
+    } catch (error) {
+    console.error(error);
+
+    if (error instanceof DOMException && error.name === "AbortError") {
+      return;
+    }
+
+    setErrorMessage("画像を保存できませんでした。もう一度お試しください。");
+  }
+};
 
   return (
     <main className="min-h-screen bg-[#F7F4EE] px-6 py-10 text-[#2B2B2B]">
@@ -194,11 +253,40 @@ export function AdminCalendarView() {
 
           <button
             type="button"
+            onClick={handleDownloadImage}
             className="w-full rounded-full border border-[#4B3425] px-6 py-4 text-[#4B3425]"
           >
             {messages.imageButton}
           </button>
         </div>
+
+        <section className="mt-12">
+  <h2 className="mb-4 text-xl">画像プレビュー</h2>
+
+  <div className="overflow-hidden rounded-3xl bg-white/70 p-4 shadow-sm">
+    <div className="aspect-square w-full overflow-hidden rounded-2xl">
+      <div className="origin-top-left scale-[0.48]">
+        <CalendarImageCard
+          year={currentYear}
+          month={currentMonth}
+          closedDays={closedDays}
+          monthlyMessage={monthlyMessage}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<div className="fixed left-[-9999px] top-0">
+  <div ref={imageRef}>
+    <CalendarImageCard
+      year={currentYear}
+      month={currentMonth}
+      closedDays={closedDays}
+      monthlyMessage={monthlyMessage}
+    />
+  </div>
+</div>
       </div>
     </main>
   );
