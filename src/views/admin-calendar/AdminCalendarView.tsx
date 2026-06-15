@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import type { MonthlySchedule } from "@/src/features/calendar/calendar.types";
 import {
   createCalendarDays,
   getNextMonth,
@@ -21,6 +22,8 @@ export function AdminCalendarView() {
   const [monthlyMessage, setMonthlyMessage] = useState(
     "今月もよろしくお願いします。"
   );
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const calendarDays = createCalendarDays(currentYear, currentMonth);
 
@@ -38,6 +41,8 @@ export function AdminCalendarView() {
     setCurrentYear(previous.year);
     setCurrentMonth(previous.month);
     setClosedDays([]);
+    setSuccessMessage("");
+    setErrorMessage("");
   };
 
   const handleNextMonth = () => {
@@ -46,6 +51,43 @@ export function AdminCalendarView() {
     setCurrentYear(next.year);
     setCurrentMonth(next.month);
     setClosedDays([]);
+    setSuccessMessage("");
+    setErrorMessage("");
+  };
+
+  const handlePublish = async () => {
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    const schedule: MonthlySchedule = {
+      targetMonth: `${currentYear}-${String(currentMonth).padStart(2, "0")}`,
+      closedDays,
+      monthlyMessage,
+    };
+
+    try {
+      const response = await fetch("/api/calendar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(schedule),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to publish schedule");
+      }
+
+      setSuccessMessage("ホームページに反映しました。");
+
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
+    } catch {
+      setErrorMessage(
+        "保存できませんでした。少し時間をおいて、もう一度お試しください。"
+      );
+    }
   };
 
   return (
@@ -129,9 +171,22 @@ export function AdminCalendarView() {
           />
         </section>
 
+        {successMessage && (
+          <p className="mt-6 rounded-2xl bg-green-50 px-4 py-3 text-center text-green-700">
+            {successMessage}
+          </p>
+        )}
+
+        {errorMessage && (
+          <p className="mt-6 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-center text-red-700">
+            {errorMessage}
+          </p>
+        )}
+
         <div className="mt-8 space-y-4">
           <button
             type="button"
+            onClick={handlePublish}
             className="w-full rounded-full bg-[#4B3425] px-6 py-4 text-white"
           >
             {messages.publishButton}
