@@ -1,3 +1,5 @@
+import { getMonthlySchedule } from "@/src/features/calendar/calendar.repository";
+
 import { AboutSection } from "./components/AboutSection";
 import { BreadSection } from "./components/BreadSection";
 import { HeroSection } from "./components/HeroSection";
@@ -5,7 +7,18 @@ import { ScheduleSection } from "./components/ScheduleSection";
 import { VisitSection } from "./components/VisitSection";
 import messages from "./messages/ja.json";
 
-export function HomeView() {
+function getCurrentTargetMonth() {
+  const today = new Date();
+
+  return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}`;
+}
+
+export async function HomeView() {
+  const schedule = await getMonthlySchedule(getCurrentTargetMonth());
+
   return (
     <main className="min-h-screen bg-[#F7F4EE] text-[#2B2B2B]">
       <HeroSection title={messages.hero.title} />
@@ -15,7 +28,10 @@ export function HomeView() {
         paragraphs={messages.about.paragraphs}
       />
 
-      <ScheduleSection title={messages.schedule.title} />
+      <ScheduleSection
+        title={messages.schedule.title}
+        schedule={schedule}
+      />
 
       <BreadSection title={messages.breads.title} items={messages.breads.items} />
 
