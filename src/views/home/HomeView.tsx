@@ -8,34 +8,38 @@ import { VisitSection } from "./components/VisitSection";
 import messages from "./messages/ja.json";
 
 function getCurrentTargetMonth() {
-  const today = new Date();
+    const today = new Date();
 
-  return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(
-    2,
-    "0"
-  )}`;
+    return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(
+        2,
+        "0"
+    )}`;
 }
 
 export async function HomeView() {
-  const schedule = await getMonthlySchedule(getCurrentTargetMonth());
+    const schedule = await getMonthlySchedule(getCurrentTargetMonth());
 
-  return (
-    <main className="min-h-screen bg-[#F7F4EE] text-[#2B2B2B]">
-      <HeroSection title={messages.hero.title} />
+    return (
+        <main className="min-h-screen bg-[#F7F4EE] text-[#2B2B2B]">
+            <HeroSection
+                title={messages.hero.title}
+                catchCopy={messages.hero.catch}
+                subtitle={messages.hero.subtitle}
+            />
 
-      <AboutSection
-        title={messages.about.title}
-        paragraphs={messages.about.paragraphs}
-      />
+            <AboutSection
+                title={messages.about.title}
+                paragraphs={messages.about.paragraphs}
+            />
 
-      <ScheduleSection
-        title={messages.schedule.title}
-        schedule={schedule}
-      />
+            <ScheduleSection
+                title={messages.schedule.title}
+                schedule={schedule}
+            />
 
-      <BreadSection title={messages.breads.title} items={messages.breads.items} />
+            <BreadSection title={messages.breads.title} items={messages.breads.items} />
 
-      <VisitSection title={messages.visit.title} items={messages.visit.items} />
-    </main>
-  );
+            <VisitSection title={messages.visit.title} items={messages.visit.items} />
+        </main>
+    );
 }
