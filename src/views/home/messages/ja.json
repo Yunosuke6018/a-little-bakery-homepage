@@ -18,20 +18,21 @@
     },
     "breads": {
         "title": "いつものパン",
-        "items": [
-            {
-                "name": "食パン",
-                "description": "毎日の朝ごはんに。"
-            },
-            {
-                "name": "クロワッサン",
-                "description": "焼きたてがおすすめです。"
-            },
-            {
-                "name": "あんぱん",
-                "description": "昔から変わらない味です。"
-            }
-        ]
+        "description": "毎日の朝ごはんに。いつものおやつに。",
+        "heroImage": "/images/breads/bread.jpg",
+        "gallery": [
+            "/images/breads/cream.jpg",
+            "/images/breads/bread2.jpg",
+            "/images/breads/franch.jpg",
+            "/images/breads/kakushoku.jpg",
+            "/images/breads/maron.jpg",
+            "/images/breads/melon.jpg",
+            "/images/breads/raisin.jpg"
+        ],
+        "footerLink": {
+            "label": "Instagramを見る →",
+            "url": "https://instagram.com/alittlebakery"
+        }
     },
     "visit": {
         "title": "お店へ",
