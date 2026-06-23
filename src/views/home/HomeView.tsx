@@ -52,7 +52,12 @@ export async function HomeView() {
                 schedule={schedule}
             />
 
-            <VisitSection title={messages.visit.title} items={messages.visit.items} />
+            <VisitSection
+                title={messages.visit.title}
+                items={messages.visit.items}
+                mapEmbedUrl={messages.visit.mapEmbedUrl}
+                footerLink={messages.visit.footerLink}
+            />
         </main>
     );
 }
