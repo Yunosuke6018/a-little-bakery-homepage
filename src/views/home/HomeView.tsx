@@ -5,6 +5,7 @@ import { BreadSection } from "./components/BreadSection";
 import { HeroSection } from "./components/HeroSection";
 import { ScheduleSection } from "./components/ScheduleSection";
 import { VisitSection } from "./components/VisitSection";
+import { MovieSection } from "./components/MovieSection";
 import messages from "./messages/ja.json";
 
 function getCurrentTargetMonth() {
@@ -30,6 +31,12 @@ export async function HomeView() {
             <AboutSection
                 title={messages.about.title}
                 paragraphs={messages.about.paragraphs}
+            />
+
+            <MovieSection
+                title={messages.movie.title}
+                description={messages.movie.description}
+                youtubeEmbedUrl={messages.movie.youtubeEmbedUrl}
             />
 
             <BreadSection

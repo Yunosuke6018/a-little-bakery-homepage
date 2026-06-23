@@ -34,6 +34,11 @@
             "url": "https://instagram.com/alittlebakery"
         }
     },
+    "movie": {
+        "title": "お店のことを、少しだけ。",
+        "description": "小さなお店で、今日も変わらずパンを焼いています。",
+        "youtubeEmbedUrl": "https://www.youtube.com/embed/fFoDq0Xu8nI?si=8gJFOfSE_uiILl-j"
+    },
     "visit": {
         "title": "お店へ",
         "items": [
