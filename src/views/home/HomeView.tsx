@@ -32,12 +32,18 @@ export async function HomeView() {
                 paragraphs={messages.about.paragraphs}
             />
 
+            <BreadSection
+                title={messages.breads.title}
+                description={messages.breads.description}
+                heroImage={messages.breads.heroImage}
+                gallery={messages.breads.gallery}
+                footerLink={messages.breads.footerLink}
+            />
+
             <ScheduleSection
                 title={messages.schedule.title}
                 schedule={schedule}
             />
-
-            <BreadSection title={messages.breads.title} items={messages.breads.items} />
 
             <VisitSection title={messages.visit.title} items={messages.visit.items} />
         </main>
