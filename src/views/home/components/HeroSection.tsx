@@ -10,7 +10,7 @@ export function HeroSection({
     subtitle,
 }: HeroSectionProps) {
     return (
-        <section className="relative overflow-hidden bg-[#F7F4EE]">
+        <section id="hero" className="relative overflow-hidden bg-[#F7F4EE]">
             <div className="relative mx-auto aspect-video w-full max-w-6xl md:aspect-auto md:h-[70vh] md:min-h-[520px]">
                 <video
                     autoPlay

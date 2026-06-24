@@ -22,7 +22,7 @@ export function VisitSection({
     footerLink,
 }: VisitSectionProps) {
     return (
-        <section className="bg-[#F7F4EE] px-6 py-16 md:py-24">
+        <section id="visit" className="bg-[#F7F4EE] px-6 py-16 md:py-24">
             <div className="mx-auto max-w-5xl">
                 <p className="mb-3 text-xs tracking-[0.28em] text-[#8A8178] md:text-sm">
                     VISIT

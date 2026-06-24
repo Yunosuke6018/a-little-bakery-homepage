@@ -5,7 +5,7 @@ type AboutSectionProps = {
 
 export function AboutSection({ title, paragraphs }: AboutSectionProps) {
     return (
-        <section className="bg-[#F7F4EE] px-6 py-16 md:py-28">
+        <section id="about" className="bg-[#F7F4EE] px-6 py-16 md:py-28">
             <div className="mx-auto max-w-4xl">
                 <p className="mb-3 text-xs tracking-[0.28em] text-[#8A8178] md:text-sm">
                     ABOUT
