@@ -1,5 +1,7 @@
 import { getMonthlySchedule } from "@/src/features/calendar/calendar.repository";
 
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 import { AboutSection } from "./components/AboutSection";
 import { BreadSection } from "./components/BreadSection";
 import { HeroSection } from "./components/HeroSection";
@@ -22,6 +24,12 @@ export async function HomeView() {
 
     return (
         <main className="min-h-screen bg-[#F7F4EE] text-[#2B2B2B]">
+
+            <Header
+                brand={messages.navigation.brand}
+                items={messages.navigation.items}
+            />
+
             <HeroSection
                 title={messages.hero.title}
                 catchCopy={messages.hero.catch}
@@ -57,6 +65,12 @@ export async function HomeView() {
                 items={messages.visit.items}
                 mapEmbedUrl={messages.visit.mapEmbedUrl}
                 footerLink={messages.visit.footerLink}
+            />
+
+            <Footer
+                brand={messages.footer.brand}
+                message={messages.footer.message}
+                copyright={messages.footer.copyright}
             />
         </main>
     );

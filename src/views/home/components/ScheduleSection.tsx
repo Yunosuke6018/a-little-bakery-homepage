@@ -33,7 +33,7 @@ export function ScheduleSection({ title, schedule }: ScheduleSectionProps) {
     const calendarDays = createCalendarDays(year, month);
 
     return (
-        <section className="px-6 py-24 max-w-3xl mx-auto">
+        <section id="schedule" className="px-6 py-24 max-w-3xl mx-auto">
             <h2 className="text-2xl mb-8">{title}</h2>
 
             <div className="rounded-3xl bg-white/60 p-6 shadow-sm">

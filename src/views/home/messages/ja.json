@@ -64,5 +64,31 @@
             "label": "Google Mapsで開く →",
             "url": "https://maps.app.goo.gl/6Ho2WXsqsFpCjzhR9"
         }
+    },
+    "navigation": {
+        "brand": "a little bakery+",
+        "items": [
+            {
+                "label": "お店のこと",
+                "href": "#about"
+            },
+            {
+                "label": "いつものパン",
+                "href": "#breads"
+            },
+            {
+                "label": "お休み",
+                "href": "#schedule"
+            },
+            {
+                "label": "アクセス",
+                "href": "#visit"
+            }
+        ]
+    },
+    "footer": {
+        "brand": "a little bakery+",
+        "message": "今日も変わらず、パンを焼いています。",
+        "copyright": "© a little bakery+"
     }
 }
