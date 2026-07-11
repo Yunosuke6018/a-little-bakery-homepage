@@ -16,8 +16,7 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     images: [
       {
-
-        url: "public/opg.jpg",
+        url: "/ogp.jpg",
         width: 1200,
         height: 630,
         alt: "a little bakery+",
@@ -29,7 +28,7 @@ export const metadata: Metadata = {
     title: "a little bakery+｜小さなちいさなパン屋さん",
     description:
       "兵庫県尼崎市の商店街で、夫婦ふたりで営む小さなパン屋です。毎日の小さな+になれますように。",
-    images: ["public/opg.jpg"],
+    images: ["/ogp.jpg"],
   },
 };
 
